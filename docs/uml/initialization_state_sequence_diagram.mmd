@@ -1,0 +1,17 @@
+sequenceDiagram
+    participant GameController
+    participant Player
+    participant Maze
+    GameController->>GameController: Initialize
+    GameController->>Maze: Create Maze
+    Maze-->>GameController: Maze Instance
+    GameController->>Player: Create Player
+    Player-->>GameController: Player Instance
+    GameController->>Maze: SetPlayerStart()
+    Maze->>Player: SetPosition(startPosition)
+    Player-->>Maze: Position Updated
+    GameController->>Player: Initialize Controls
+    Player-->>GameController: Ready
+    GameController->>Maze: GetMazeLayout()
+    Maze-->>GameController: Layout Data
+    GameController-->>GameController: Game Ready

@@ -1,0 +1,48 @@
+classDiagram
+    class GameController {
+        -players: Player[]
+        -maze: Maze
+        -scoreManager: ScoreManager
+        -isRunning: boolean
+        +startGame()
+        +endGame()
+        +updateGame()
+        +handleInput()
+    }
+    
+    class Player {
+        -playerId: int
+        -name: string
+        -position: Vector2
+        -health: int
+        -scoreManager: ScoreManager
+        +move(direction: Vector2)
+        +takeDamage(amount: int)
+        +updateScore(points: int)
+        +getPosition(): Vector2
+    }
+    
+    class Maze {
+        -width: int
+        -height: int
+        -tiles: Tile[][]
+        -enemies: Enemy[]
+        +generateMaze()
+        +getTile(x: int, y: int): Tile
+        +isWalkable(x: int, y: int): boolean
+        +updateEnemies()
+    }
+    
+    class ScoreManager {
+        -scores: Map~Player,int~
+        -totalScore: int
+        +addPoints(player: Player, points: int)
+        +removePoints(player: Player, points: int)
+        +getScore(player: Player): int
+        +resetScore()
+    }
+    
+    GameController --> Player
+    GameController --> Maze
+    GameController --> ScoreManager
+    Player --> ScoreManager

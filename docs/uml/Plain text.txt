@@ -1,0 +1,8 @@
+what Each Class Represents
+GameController — This is like the “boss” of the game. It starts the game, makes the maze, makes the player, and tells everyone what to do.
+ It keeps track of the whole game flow so things happen in the right order.
+
+Player — This is the charcter the user controls. It has things like its position in the maze, and it listens for controls so it can move 
+around.
+
+Maze — This is the game world. It holds the layout (walls, paths, start point, maybe the exit). It also knows where the player should start.
