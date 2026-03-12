@@ -1,0 +1,9 @@
+class GameController:
+    def __init__(self):
+        self.name = self.__class__.__name__
+class GameController:
+    def __init__(self, player, maze):
+        self.name = self.__class__.__name__
+        self.player = player
+        self.maze = maze
+        self.running = True
